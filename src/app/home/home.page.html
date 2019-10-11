@@ -11,7 +11,7 @@
 
 <ion-content>
   <ul>
-    <li class="text" *ngFor="let item of listaCliente" (click)="goPage(item.id)">
+    <li *ngFor="let item of listaCliente">
       {{item.nome}}
     </li>
   </ul>

@@ -9,23 +9,41 @@ import { Router } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  items: Observable<any[]>;
-  listaCliente : Cliente[] = [];
 
-  constructor(db: AngularFirestore, private router : Router) {
-    db.collection('cliente').get().subscribe(response=>{
-      response.forEach(doc=>{
-        let c = new Cliente();
-        c.setCliente(doc.data(),doc.id);
-        this.listaCliente.push(c);
+export class HomePage {
+  
+  listaCliente : Cliente[] = []; // Variável para armazenar os clientes (Array)
+
+  constructor(db: AngularFirestore, // Módulo de banco de dados
+    private router : Router) {
+
+    // Solicita os dados da coleção clientes no Firebase
+    db.collection('clientes').get().subscribe(response=>{ 
+      // response retona um objeto do firebase, precisamos converter em
+      // um objeto cliente
+
+      // forEach equivalente ao for, percorre todos os elementos do firebase
+      // cada um se chama doc, ou seja, converter um doc em cliente.
+      response.forEach(doc=>{ 
+       
+        let c = new Cliente(); // Cria um novo objeto cliente
+        c.setCliente(doc.data(),doc.id); // coloca os dados do doc em clientes
+
+        this.listaCliente.push(c); // adiciona este cliente a lista
+ 
+      },err=>{ // Em caso de erro, executa esssa linha
+        console.log(err);
       })
+
     });
     
   }
-
-  goPage(idValue : string){
-    this.router.navigate(['home-detail',{id : idValue}]);
-  }
-
 }
+
+
+
+
+
+/* goPage(idValue : string){
+    this.router.navigate(['home-detail',{id : idValue}]);
+  } */

@@ -10,15 +10,16 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-    canActivate: [AuthGuardService] 
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
   { path: 'home-detail', loadChildren: './home-detail/home-detail.module#HomeDetailPageModule' },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
+
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'logoff', loadChildren: './logoff/logoff.module#LogoffPageModule' }
 ];
 
 @NgModule({

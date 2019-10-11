@@ -3,23 +3,18 @@
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
+<ion-content padding>
   <ion-list>
-
     <ion-item>
       <ion-label fixed>E-mail</ion-label>
       <ion-input type="text" value="" [(ngModel)]="email"></ion-input>
     </ion-item>
-  
     <ion-item>
       <ion-label fixed>Senha</ion-label>
       <ion-input type="password" [(ngModel)]="senha"></ion-input>
     </ion-item>
-  
   </ion-list>
 
-  <button ion-button full (click)="login()">Entrar</button>
-
-  <button ion-button full (click)="cadastrar()" outline>Novo Usuário</button>
+  <ion-button expand="full" (click)="login()">Entrar</ion-button>
+  <ion-button expand="full" (click)="cadastrar()">Novo Usuário</ion-button>
 </ion-content>

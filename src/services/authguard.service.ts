@@ -12,7 +12,6 @@ export class AuthGuardService implements CanActivate{
     
     canActivate() : boolean {
         
-
         let authInfo = {
             authenticated: false
         };''
