@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { MenuController, ToastController } from '@ionic/angular';
+import { StorageService } from 'src/services/storage.service';
+import { Cliente } from 'src/model/cliente';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,8 @@ export class LoginPage implements OnInit {
   constructor(public afAuth: AngularFireAuth, // Autenticação
     private router : Router, 
     private menuCtrl : MenuController, // Desativar/Ativar menu
-    private toastCtrl : ToastController) {
+    private toastCtrl : ToastController,
+    private storageServ : StorageService) {
       this.menuCtrl.swipeEnable(false);
     }
 
@@ -25,7 +28,11 @@ export class LoginPage implements OnInit {
   login(){
     this.afAuth.auth.signInWithEmailAndPassword( // Função para realizar login com
       this.email,this.senha).then(()=>{         // e-mail e senha
+        let c = new Cliente();
+        c.email = this.afAuth.auth.currentUser.email;
+        c.id = this.afAuth.auth.currentUser.uid;
         // Login correto
+        this.storageServ.setLocalUser(c);
         this.menuCtrl.swipeEnable(true); // ativiar o menu
         this.router.navigate(['/home']); // redirecionar para home
 

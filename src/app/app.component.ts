@@ -17,10 +17,17 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'Cadastro de Clientes',
+      url: '/cliente-cadastro',
+      icon: 'person-add'
+    },
+    {
       title: 'Logoff',
       url: '/logoff',
       icon: 'log-out'
     }
+
+    
   ];
 
   constructor(

@@ -1,16 +1,18 @@
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { StorageService } from './storage.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate{
 
-    
-    
-    constructor(private router: Router) {
+
+    constructor(private router: Router, private storageServ : StorageService) {
 
     }
     
     canActivate() : boolean {
+
+        let auth = this.storageServ.lsLogin();
         
         let authInfo = {
             authenticated: false

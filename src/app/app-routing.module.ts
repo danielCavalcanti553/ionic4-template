@@ -17,9 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
   { path: 'home-detail', loadChildren: './home-detail/home-detail.module#HomeDetailPageModule' },
-
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'logoff', loadChildren: './logoff/logoff.module#LogoffPageModule' }
+  { path: 'logoff', loadChildren: './logoff/logoff.module#LogoffPageModule' },
+  { path: 'cliente-cadastro', loadChildren: './cliente-cadastro/cliente-cadastro.module#ClienteCadastroPageModule' },
+  { path: 'cliente-detalhes', loadChildren: './cliente-detalhes/cliente-detalhes.module#ClienteDetalhesPageModule' }
 ];
 
 @NgModule({
