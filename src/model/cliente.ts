@@ -9,6 +9,7 @@ export class Cliente{
     testetutorial: string;
     testetutorialRetro: string;
     
+    
     setCliente(obj : any, id : any){
         this.id = id;
         this.nome = obj.nome;
