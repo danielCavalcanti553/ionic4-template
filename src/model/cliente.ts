@@ -2,7 +2,8 @@ export class Cliente{
     id : string;
     nome : string;
     email : string;
-    telefone : string;    
+    telefone : string;
+    email2 : string;   
     
     setCliente(obj : any, id : any){
         this.id = id;
