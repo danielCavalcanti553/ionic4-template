@@ -3,7 +3,7 @@ export class Cliente{
     nome : string;
     email : string;
     telefone : string;
-    teste1: string;
+    teste1:string;
     
     setCliente(obj : any, id : any){
         this.id = id;
