@@ -3,4 +3,5 @@ export class User{
     email : string;
     teste1: string;
     teste2ui: string;
+    email2 : String;
 }
