@@ -7,6 +7,7 @@ export class Cliente{
     teste2 : string;
     testeuisouza: string;
     testetutorial: string;
+    testetutorialRetro: string;
     
     setCliente(obj : any, id : any){
         this.id = id;
